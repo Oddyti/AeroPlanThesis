@@ -50,8 +50,11 @@ latexmk -xelatex -outdir=out zjuthesis
 
 - Overleaf 用户：上传整个项目（不含 `out/`），编译器选择 **XeLaTeX**，并按提示上传所需字体
 - 必须使用 `latexmk`（或 `./build.sh`）编译，参考文献（biber）才会被正确处理
-- Windows 用户：本仓库未提供 Windows 原生脚本（见 §1.2），请在 Git Bash / WSL 中运行 `./build.sh`，
+- Windows 用户：本仓库未提供 Windows 原生脚本（平台说明见 §2.1），请在 Git Bash / WSL 中运行 `./build.sh`，
   或自行（可用 AI）按上方等价的 `latexmk` 命令改写一份可用的脚本
+- **遇到安装/使用问题**：本模板是在原项目 zjuthesis 基础上的精简二次开发，大部分问题（字体、TeX Live、
+  Overleaf、参考文献样式等）在原项目及其 issue 中已有讨论与解答，建议优先查阅原项目与搜索原项目 issue：
+  - 原项目：<https://github.com/TheNetAdmin/zjuthesis>（官方文档：<https://thenetadmin.github.io/zjuthesis>）
 
 ### 2.3 填写论文信息
 
