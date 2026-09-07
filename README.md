@@ -37,6 +37,8 @@ MIT 协议）**v10.0.1** 基础上二次开发，**仅供课题组内部使用�
 - macOS：使用系统中文字体（Songti SC 等，模板自动适配 mac/macnew fontset）
 - Windows/Linux：SimSun 等中文字体，如缺失请按需配置 `config/format/general/fonts.tex`
 - 校内安装可参考浙江大学镜像：<https://mirrors.zju.edu.cn/docs/CTAN>
+- 编辑器推荐：使用 **TeX Live 引擎 + VSCode** 的组合写论文（VSCode 装 **LaTeX Workshop** 插件，编译命令直接调 `latexmk`）。
+  TeX Live 自带的官方编辑器（TeXworks / TeXShop 等）不好用，不建议；相关环境配置教程网上很多，搜「VSCode + LaTeX」即可
 
 ### 2.2 编译
 
