@@ -1,0 +1,10 @@
+\inputbody{post/ref}
+\inputbody{post/appendix}
+% 盲审：只渲染学术成果（脱敏）页；正式版：只渲染作者简历页（个人成果由用户撰写）
+\ifthenelse{\equal{\BlindReview}{true}}
+{
+    \inputbody{post/achievements}
+}
+{
+    \inputbody{post/cv}
+}

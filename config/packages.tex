@@ -1,0 +1,54 @@
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{multido}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+% \usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{ulem}
+\usepackage{xeCJKfntef}
+\usepackage{soul}
+% \xeCJKsetup { underline/skip = false }
+\usepackage{pdfpages}
+\usepackage[
+    style=gb7714-2025,
+    gbcitelocal=chinese,   % Uncomment if you want \citeauthor{} in "et al." format. GitHub PR (#324)
+    % gbpub=false,         % Uncomment if you do NOT want '[S.l. : s.n.]' in reference entries, GitHub Issue (#47)
+    % gbnamefmt=lowercase, % Uncomment if you do NOT want uppercase author names in reference entries, GitHub Issue (#23)
+    doi=false,
+]{biblatex}
+\usepackage{siunitx}
+\sisetup{
+    detect-all = true,
+    inter-unit-product = \ensuremath{\cdot},
+}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{chngcntr}
+\usepackage{enumitem}
+% 收紧 enumerate 列表项间距（itemsep=项间距, parsep=项内段距, topsep=列表与前后文间距）
+\setlist[enumerate]{itemsep=0pt, parsep=0pt, topsep=0pt}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{xparse}
+\usepackage{bookmark}
+\usepackage{calc}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[chapter]{algorithm}
+\usepackage{algorithmic}
+%\usepackage{newtxmath}
+%\usepackage{bm}
+\usepackage{unicode-math}
+\setmathfont{XITS Math}
+\newcommand{\bm}[1]{\symbfit{#1}}

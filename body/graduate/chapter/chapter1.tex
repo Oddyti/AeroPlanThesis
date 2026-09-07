@@ -1,0 +1,100 @@
+\chapter{绪论}\label{chap:intro}
+
+\section{二级标题}
+
+\subsection{三级标题}
+
+单文献引用~\cite{thrun2005probabilistic}。多文献引用~\cite{khatib1986real, fox1997dynamic}
+
+\section{图片插入示例}
+
+图片文件放在 \texttt{figure/} 目录下，正文中用 \verb|\includegraphics| 插入：
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\textwidth]{example/fig_framework}
+    \caption{图片题注示例}
+    \label{fig:example}
+\end{figure}
+
+图引用示例：如图~\ref{fig:example}~所示。单文献引用~\cite{quigley2009ros}。
+
+\section{表格插入示例}
+
+\begin{table}[htb]
+    \centering
+    \caption{表格题注示例}
+    \label{tab:example}
+    \small
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{列一} & \textbf{列二} & \textbf{列三} \\
+        \midrule
+        示例数据 & 示例数据 & 示例数据 \\
+        示例数据 & 示例数据 & 示例数据 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+表引用示例：如表~\ref{tab:example}~所示。
+
+\section{公式插入示例}
+
+\begin{equation}
+    \dot{\bm x} = \bm A \bm x + \bm B \bm u
+    \label{eq:example}
+\end{equation}
+
+公式引用示例：如式~\eqref{eq:example}~所示。单文献引用~\cite{sutton2018reinforcement}。
+
+公式中的矢量、矩阵等需要加粗时，请用 \verb|\bm{}|（如 \verb|\bm x|、\verb|\bm A|），
+**不要使用 \verb|\boldsymbol{}|**。模板已在 \texttt{config/packages.tex} 中将
+\verb|\bm| 重定义为 \verb|\symbfit|（基于 \texttt{unicode-math}），可与正文数学字体保持一致。
+
+\section{物理单位书写示例}
+
+正文中的数值与物理单位请统一用 \texttt{siunitx} 宏包排版，**不要手写单位字符串**。
+手写单位容易出现正/斜体不分、缺少间隔、与数学变量混淆等问题（例如把毫秒写成斜体的
+\textit{m s} 或在正文中直接写 ``ms''、``rad/s''、``Nm''）。
+
+\textbf{不带数值的单位}用 \verb|\si{}| 排版，单位内部的词与词之间不要手敲，交给宏包处理：
+
+\begin{itemize}
+    \item \verb|\si{\milli\second}|：采样时间间隔等毫秒级单位
+    \item \verb|\si{\radian\per\second}|：角速度单位（不要写成 ``rad/s''）
+    \item \verb|\si{\newton\meter}|：力矩单位（不要写成 ``Nm''）
+    \item \verb|\si{\degree}|：角度（不要写成 ``deg''）
+    \item \verb|\si{\degreeCelsius}|：摄氏温度
+\end{itemize}
+
+\textbf{带数值}时，数值用正文模式书写，单位用 \verb|\si{}|，两者以 \verb|~| 相连：
+
+\begin{itemize}
+    \item \verb|10~\si{\milli\second}|：正文渲染为 10~\si{\milli\second}
+    \item \verb|1.5~\si{\radian\per\second}|：正文渲染为 1.5~\si{\radian\per\second}
+    \item \verb|30~\si{\degree}|：正文渲染为 30~\si{\degree}
+\end{itemize}
+
+若想由宏包一并处理“数值 + 单位”的间距，也可使用 \verb|\SI{10}{\milli\second}|。
+
+其余约定：正文中的纯数字、百分号等使用正文模式，只有数学变量、公式与推导才进入数学模式；
+科学计数法用文本形式书写，如 \verb|7.7 \texttimes\ 10\textsuperscript{-3}|。完整规范见 \texttt{docs/latex\_rules.md}。
+
+\section{综合引用示例}
+
+以上各节分别给出了图片（图~\ref{fig:example}~）、表格（表~\ref{tab:example}~）、公式（式~\eqref{eq:example}~）与文献引用（如~\cite{sutton2018reinforcement, quigley2009ros}~）的写法示例。
+
+\section{修订标记示例}
+
+审阅修改期间，可用 \verb|\rev{}|（中文/混排）与 \verb|\revEN{}|（纯英文）标出修订处，再由总开关一键显隐：
+
+\begin{itemize}
+    \item \verb|\rev{}|：开启开关时内容以黄底高亮标出，支持跨行与 \verb|\ref| 等宏，但不可含 \verb|\cite|。
+          例如：\rev{这里是被标记的中文修订文字}~\cite{sutton2018reinforcement}。
+    \item \verb|\revEN{}|：开启开关时英文以黄底高亮标出，内容请勿含 \verb|\cite|、\verb|\ref| 等宏。
+          例如：\revEN{This is a marked English revision sentence.}
+\end{itemize}
+
+开关位于 \texttt{zjuthesis.tex} 中：\verb|\showrevtrue| 显示上述标记；
+\verb|\showrevfalse| 隐藏标记并直接输出原文，可用于生成正式提交版。
+

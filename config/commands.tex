@@ -1,0 +1,119 @@
+% common commands
+
+\newcommand{\ifbooltrue}[2]{\ifthenelse{\boolean{#1}}{#2}{}}
+\newcommand{\ifboolfalse}[2]{\ifthenelse{\boolean{#1}}{}{#2}}
+
+\ifthenelse{\equal{\TwoSide}{true}}
+{
+    % TwoSide settings
+    % Use default `\cleardoublepage'
+}
+{
+    % OneSide settings
+    \renewcommand{\cleardoublepage}{\clearpage}
+}
+
+\newcommand{\bful}[1]{{\bfseries\uline{#1}}}
+
+% Commands to input body pages
+\newcommand{\checkandinput}[2]
+{
+    % Directory structure:
+    % graduate                        [Degree     ] [required        ]
+    % |-- master/doctor               [GradLevel  ] [optional        ]
+    %     |-- general/cs/math/...     [MajorFormat] [optional        ]
+    %         |-- cover.tex/toc.tex/... [TeX Files  ] [template defined]
+    %
+    % Search from bottom-level to top-level:
+    % E.g:
+    %     With such dir:
+    %     graduate
+    %     |-- cover.tex
+    %     |-- toc.tex
+    %     |-- abstract.tex
+    %     |-- master
+    %         |-- toc.tex
+    %         |-- math
+    %             |-- abstract.tex
+    %     The input files are:
+    %         graduate/cover.tex
+    %         graduate/master/toc.tex
+    %         graduate/master/math/abstract.tex
+    \IfFileExists{./#1/graduate/\GradLevel/\MajorFormat/#2}
+    {
+        \input{./#1/graduate/\GradLevel/\MajorFormat/#2}
+    }
+    {
+        \IfFileExists{./#1/graduate/\GradLevel/#2}
+        {
+            \input{./#1/graduate/\GradLevel/#2}
+        }
+        {
+            \input{./#1/graduate/#2}
+        }
+    }
+}
+
+\newcommand{\inputpage}[1]
+{
+    \checkandinput{page}{#1}
+}
+
+\newcommand{\inputbody}[1]
+{
+    \checkandinput{body}{#1}
+}
+
+\newcommand{\chapternonum}[1]
+{
+    \phantomsection
+    \addcontentsline{toc}{chapter}{#1}
+    \markboth{#1}{#1}
+    % 无编号章标题（作者简历/摘要/致谢等）居中显示；
+    % 用组限界，不影响编号正文各章（仍按 heading 的 \raggedright 格式）
+    {
+        \ctexset{chapter={format=\centering\zihao{-3}\bfseries}}
+        \chapter*{#1}
+    }
+}
+
+\newcommand{\sectionnonum}[1]
+{
+    \phantomsection
+    \addcontentsline{toc}{section}{#1}
+    \section*{#1}
+}
+
+% From: https://tex.stackexchange.com/questions/395856/switching-tocdepth-in-the-middle-of-a-document
+\newcommand{\changelocaltocdepth}[1]{%
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{#1}}%
+  \setcounter{tocdepth}{#1}%
+}
+
+%% ===== 修订标记：\rev{} / \revEN{}（统一开关 \ifshowrev）=====
+% 显示/隐藏开关 \showrevtrue / \showrevfalse 在 zjuthesis.tex 中设置。
+% 打开：显示标记；关闭：输出原文。
+% 注意：\rev / \revEN 内不要放 \cite{}（会报错），引用放在外面：
+%   \rev{文字部分}~\cite{key}。   % 正确
+%   \rev{文字部分~\cite{key}}。   % 错误，勿用
+\newif\ifshowrev
+
+% 中文 / 混排版（内容可含 \ref{} 等宏）
+\newcommand{\rev}[1]{%
+  \ifshowrev
+    \CJKunderanyline*{0.5ex}%
+      {\color{yellow}\rule{0.5pt}{2.5ex}}%
+      {#1}%
+  \else
+    #1%
+  \fi
+}
+
+% 纯英文版（soul 背景高亮：跨行、保留词间空格；内容勿含 \cite/\ref 等宏）
+\newcommand{\revEN}[1]{%
+  \ifshowrev
+    \hl{#1}%
+  \else
+    #1%
+  \fi
+}

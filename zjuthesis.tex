@@ -1,0 +1,111 @@
+% Zhejiang University Graduation Thesis/Design Template
+% Author     : Zixuan Wang
+% Email      : zxwang42 [at] gmail.com
+% Update     : https://github.com/TheNetAdmin/zjuthesis/releases
+% Discussion : https://github.com/TheNetAdmin/zjuthesis/discussions
+% Documents  : https://thenetadmin.github.io/zjuthesis
+
+% If you have trouble using this template, please:
+%   1. First go through the online documentations mentioned above, to see if
+%      there're already solutions.
+%   2. Go through GitHub Issue list, to see if there're discussions on similar
+%      problems
+%   3. Open a GitHub Issue to discuss with developers
+%   4. If you don't know how to use GitHub, you can send me an email
+
+\documentclass[
+    % Debugging Settings
+    PrintFilePath   = false,            % print tex file path for each page
+    % Layout Settings
+    TwoSide         = true,             % set to false if don't need empty pages
+    TrueBlankPage   = false,            % 设置为真将使得空白页不再拥有页眉页脚和页号
+    % Thesis Info
+    ClassNumber     = 按中国图书分类法，学位办网上可查,                                % 按中国图书分类法，学位办网上可查
+    Security        = 注明密级与保密期限,                                   % 注明密级与保密期限，仅限于论文课题来源于国防军工项目，如没有请填：无
+    StudentName     = 张三,                                 % 学生姓名
+    StudentID       = 22324001,                             % 学号
+    AdvisorName     = 李四,                                 % 指导教师
+    Grade           = 2024,                                 % only the year, no '级'
+    Major           = 控制科学与工程,                       % 专业
+    Department      = 控制科学与工程学院,                   % 学院
+    SubmitDate      = 二零二七年六月,                       % 提交日期
+    MajorFormat     = general,
+    Degree          = graduate,   % 本项目仅支持 graduate（硕士/博士）
+    Type            = thesis,          % 'thesis'   or 'design'
+    Period          = final,           % 硕士/博士：'final' 最终论文；'proposal' 开题报告（首页封面+目录+正文）
+    BlindReview     = true,           % 'false'    or 'true'
+    Language        = chinese,         % 'chinese'  or 'english'
+    % Graduate Thesis Info
+    GradLevel       = master,          % 'master' or 'doctor'
+    Topic           = 自主移动机器人导航,                   % 研究方向
+    ColaboratorName = ,
+    % Table of Contents
+    ListOfContents  = true,
+    ListOfFigures   = true,
+    ListOfTables    = true,
+    ListOfAlgorithms= false,
+    % Title
+    Title           = 示例论文题目,
+    TitleEng        = {{Example Thesis Title}}
+]{zjuthesis}
+
+%% ===== 修订标记开关（命令定义见 config/commands.tex）=====
+% \showrevtrue 显示 \rev{} / \revEN{} 标记；\showrevfalse 隐藏并输出原文。
+\showrevtrue
+
+%% Uncomment the following lines if you need multi line titles on cover pages
+% \titletwolines{论文题目第一行}{论文题目第二行}
+% \titleengthreelines{Thesis Title Line One}{Thesis Title Line Two}{Thesis Title Line Three}
+
+%% Uncomment the following lines if you need multi line major names on cover pages
+% \majortwolines{专业名第一行}{专业名第二行}
+
+%% Uncomment the following lines if you need multi line department names on cover pages
+% \departmenttwolines{学院名第一行}{学院名第二行}
+
+\newcommand{\inputgraduate}
+{
+    \coverstyle
+    \inputpage{cover}
+
+    \prevstyle
+    \inputpage{previous}
+    \inputpage{toc}
+
+    % Main contents
+    \bodystyle
+    \inputbody{content}
+
+    % Post part
+    \poststyle
+    \inputbody{post}
+}
+
+% 硕士/博士开题报告：首页封面 + 目录 + 正文 + 参考文献（正文与最终版共用 body/graduate/content.tex）
+\newcommand{\inputgraduateproposal}
+{
+    \coverstyle
+    \inputpage{proposal/cover}
+
+    \prevstyle
+    \inputpage{proposal/toc}
+
+    % Main contents
+    \bodystyle
+    \inputbody{content}
+
+    % 开题参考文献页（独立可覆盖文件）
+    \inputbody{proposal/ref}
+}
+
+\begin{document}
+
+\ifthenelse{\equal{\Period}{proposal}}
+{
+    \inputgraduateproposal{}
+}
+{
+    \inputgraduate{}
+}
+
+\end{document}

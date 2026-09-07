@@ -1,0 +1,34 @@
+% Vertical align for tabularx cells
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+
+\setlength{\heavyrulewidth}{0.08em}   % toprule、bottomrule
+\setlength{\lightrulewidth}{0.05em}   % midrule
+\setlength{\cmidrulewidth}{0.03em}    % cmidrule
+
+% 独立调整表头上下间距
+\setlength{\aboverulesep}{0.25ex}
+\setlength{\belowrulesep}{0.25ex}
+
+% Column spacing
+% \setlength{\tabcolsep}{20pt}
+
+% Keep table body font/size consistent with normal body text.
+% Apply to table-like environments only, so cover-related non-body content
+% (which mostly uses direct tabular layout) is not affected.
+% \AtBeginEnvironment{table}{%
+%     \normalfont
+%     \renewcommand{\arraystretch}{1.1}%
+% }
+
+% \AtBeginEnvironment{longtable}{%
+%     \normalfont
+%     \renewcommand{\arraystretch}{1.1}%
+% }
+
+% Fix bold text bug, see:
+%   - GitHub zjuthesis: #24, #134, #158
+%   - GitHub ctex-kit :  #546
+\makeatletter
+\appto{\@floatboxreset}{\special{pdf:code q}}
+\preto{\@endfloatbox}{\special{pdf:code Q}}
+\makeatother

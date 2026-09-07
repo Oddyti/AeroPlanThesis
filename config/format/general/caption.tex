@@ -1,0 +1,34 @@
+% Set default caption font type
+\DeclareCaptionFont{figurefont}{\normalfont\normalsize}
+\captionsetup[figure]{font=figurefont}
+\captionsetup[table]{font=figurefont}
+\captionsetup[algorithm]{font=figurefont}
+\captionsetup[subfigure]{font=figurefont}
+\captionsetup[subfigure]{skip=0pt}
+\captionsetup{subrefformat=parens}
+
+% `position` doesn't actually set the caption position,
+% It only determines weather the `skip` inserted above/below `caption`
+\captionsetup[figure]{
+    position=bottom,
+    skip=6pt
+}
+
+\captionsetup[table]{
+    position=top,
+    skip=6pt
+}
+
+% Use whitespace as caption separators
+\captionsetup[figure]{labelsep=space}
+\captionsetup[table]{labelsep=space}
+\captionsetup[subfigure]{labelsep=space}
+
+%% Uncomment the following lines to use dual-language caption
+%% E.g.: https://github.com/TheNetAdmin/zjuthesis/issues/181
+% \usepackage[list=off]{bicaption}
+% \DeclareCaptionOption{bi-second}[]{%
+%     \def\tablename{Table}%
+%     \def\figurename{Figure}%
+% }
+% \captionsetup[bi-second]{bi-second}

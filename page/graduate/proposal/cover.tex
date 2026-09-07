@@ -1,0 +1,60 @@
+% Graduate proposal cover page
+\cleardoublepage{}
+\thispagestyle{cover}
+
+\begin{center}
+    \includegraphics[width=0.5\paperwidth]{logo/zjuchar.pdf}
+\end{center}
+
+\vspace{-40pt}
+
+\begin{center}
+    \zihao{-1} \fangsong
+    \TitleTypeNameCover 开题报告
+\end{center}
+
+\vspace{20pt}
+
+\begin{center}
+    \includegraphics[width=0.17\paperwidth]{logo/zju.pdf}
+\end{center}
+
+\vspace{30pt}
+
+\begin{center}
+    \zihao{-2}\fangsong
+    \bfseries 论文题目：\parbox[t]{0.7\textwidth}{
+      \centering
+      \parbox[t]{0.95\linewidth}{\centering \bfseries \fangsong \CJKunderline{\Title}}
+    }
+  \end{center}
+
+\vspace{30pt}
+
+\begin{center}
+    \zihao{4}
+    \renewcommand{\arraystretch}{1.4}
+    \begin{tabularx}{0.6\textwidth}{>{\fangsong}l >{\fangsong}X<{\centering}}
+        \ifthenelse{\equal{\BlindReview}{true}}{
+            姓名：    & \uline{\hfill \hfill} \\
+            学号：    & \uline{\hfill \hfill} \\
+            专业：    & \uline{\hfill \hfill} \\
+            学院：    & \uline{\hfill \hfill} \\
+            导师：    & \uline{\hfill \hfill} \\
+        }{
+            姓名：    & \uline{\hfill \StudentName \hfill} \\
+            学号：    & \uline{\hfill \StudentID \hfill} \\
+            专业：    & \uline{\hfill \Major \hfill} \\
+            学院：    & \uline{\hfill \Department \hfill} \\
+            导师：    & \uline{\hfill \AdvisorName \hfill} \\
+        }
+    \end{tabularx}
+\end{center}
+\renewcommand{\arraystretch}{1.0}
+
+\vfill
+
+\begin{center}
+    \zihao{-4} \songti
+    \SubmitDate
+\end{center}

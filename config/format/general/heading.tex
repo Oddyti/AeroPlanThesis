@@ -1,0 +1,62 @@
+% ctex style settings
+\ctexset
+{
+    part =
+    {
+        format=\centering\zihao{-0}\bfseries,
+        nameformat=\centering\heiti\fontsize{48}{48}\bfseries,
+    },
+    chapter =
+    {
+        format=\raggedright\zihao{-3}\bfseries,
+        name={},
+        number=\arabic{chapter},
+        beforeskip=12pt,
+        afterskip=6pt
+    },
+    section =
+    {
+        format=\raggedright\zihao{4}\bfseries,
+        name={},
+        number=\arabic{chapter}.\arabic{section},
+        beforeskip=8pt,
+        afterskip=8pt
+    },
+    subsection =
+    {
+        format=\raggedright\zihao{-4}\bfseries,
+        name={},
+        number=\arabic{chapter}.\arabic{section}.\arabic{subsection},
+        beforeskip=6pt,
+        afterskip=6pt
+    },
+    subsubsection =
+    {
+        format=\raggedright\zihao{-4},
+        name={},
+        aftername=~,
+        numbering=true,
+        number=\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection},
+        beforeskip=0pt,
+        afterskip=0pt
+    }
+}
+
+% Reset chapter number each part
+\makeatletter
+\@addtoreset{chapter}{part}
+\makeatother
+
+\renewcommand{\contentsname}{目录}
+\newcommand{\markloc}{\addcontentsline{toc}{chapter}{目录}}
+\renewcommand{\listfigurename}{图目录}
+\newcommand{\marklof}{\addcontentsline{toc}{chapter}{图目录}}
+\renewcommand{\listtablename}{表目录}
+\newcommand{\marklot}{\addcontentsline{toc}{chapter}{表目录}}
+\renewcommand{\listalgorithmname}{算法目录}
+\newcommand{\markloa}{\addcontentsline{toc}{chapter}{算法目录}}
+
+% Change biblography title style for `biblatex`
+\defbibheading{bibliography}[\bibname]{
+    \chapternonum{#1}
+}

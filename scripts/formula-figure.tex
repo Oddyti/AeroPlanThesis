@@ -1,0 +1,35 @@
+% 独立公式绘图文档（使用与主工程一致的 zjuthesis 类）
+% 用途：在保持主论文字体与公式排版风格完全一致的情况下，
+%       单独编译此文件以导出高分辨率公式图（PDF/SVG 等）。
+
+\documentclass[
+    Language        = chinese,
+    Degree          = graduate,
+    Type            = design,
+    Period          = final,
+    GradLevel       = master
+]{zjuthesis}
+
+% 如需额外宏包可在此处添加（zjuthesis 已经加载常用数学宏包）
+% \usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\thispagestyle{empty}
+%
+% 例如：
+\[
+    \begin{aligned}
+        O_I x_I y_I z_I \, O_B x_B y_B z_B \, a \, e \, i \, \Omega \, \omega \, f \\
+    O_B \, x_B \, y_B \, z_B \, m \, \bm{w}(x, t) \\
+    t_0, \, t_f, \, \theta, \, \bm{q}_0, \bm{q}_d \\
+    \bm{H}_t, \, \bm{v}(t), \, \bm{x}(t), \, \bm{y}_\mathrm{cmd} \\
+    \bm{q}_\mathrm{ref}, \, \bm{q}_0 \\
+    \bm{\omega}, \, \bm{u}_{\mathrm{ctrl}} \, \bm{u}_{\mathrm{final}}, \, \bm{u}_{\mathrm{comp}} \, \hat{\bm{u}}_{\mathrm{comp}}(t), \, \bm{u}_{\mathrm{comp}}^* \\
+    \bm{X}_k, \, t, \, L \, 1 \, \cdots \\
+    \bm{o}(t) \, \hat{\bm{y}}_{\mathrm{cmd}}
+    \end{aligned}
+\]
+
+\end{document}
+
